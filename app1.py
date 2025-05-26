@@ -2,13 +2,14 @@ import streamlit as st
 import pandas as pd
 import psycopg2
 
-# Conexión directa a la base de datos Supabase
+# Conexión a la base de datos Supabase con SSL
 conn = psycopg2.connect(
     host="db.texgcqrbzuuwrfrcsxkm.supabase.co",
     dbname="postgres",
     user="postgres",
-    password="Oikos2032*",  # <-- ⚠️ No recomendado en producción
-    port="5432"
+    password="Oikos2032*",
+    port="5432",
+    sslmode="require"  # 🔐 Esto es muy importante
 )
 
 # Consulta 1: Total recaudado por tipo de vehículo
